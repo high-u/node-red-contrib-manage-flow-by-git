@@ -13,5 +13,5 @@ module.exports = function (RED) {
             node.send(msg);
         });
     }
-    RED.nodes.registerType('git', gitNode);
+    RED.nodes.registerType('manage-flow-by-git', gitNode);
 };

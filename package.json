@@ -1,6 +1,11 @@
 {
   "name": "node-red-contrib-manage-flow-by-git",
   "version": "0.0.1",
+  "node-red": {
+    "nodes": {
+      "manage flow by git": "manage-flow-by-git.js"
+    }
+  },
   "description": "Manage flow by git.",
   "main": "manage-flow-by-git.js",
   "scripts": {

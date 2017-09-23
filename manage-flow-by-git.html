@@ -179,50 +179,52 @@
         ].join("");
         return html;
     }
-    RED.nodes.registerType('git', {
+    RED.nodes.registerType('manage-flow-by-git', {
         category: 'advanced',
-        color: '#FFFFFF',
+        color: '#545454',
         defaults: {
             name: { value: '' },
             target: { value: 'payload' }
         },
-        inputs: 1,
-        outputs: 1,
-        icon: 'git.png',
+        inputs: 0,
+        outputs: 0,
+        icon: 'manage-flow-by-git.png',
+        paletteLabel: "by git",
         label: function () {
             return this.name || "msg." + this.target + "++";
         },
         onpaletteadd: function () {
 
             RED.sidebar.addTab({
-                id: "git",
-                label: "git",
-                name: "git",
+                id: "manage-flow-by-git",
+                label: "by git",
+                name: "manage-flow-by-git",
                 content: sethtml(),
                 enableOnEdit: true
             });
-            RED.actions.add("core:show-git-tab", function () { RED.sidebar.show('git'); });
+            RED.actions.add("core:show-manage-flow-by-git-tab", function () { RED.sidebar.show('manage-flow-by-git'); });
 
         },
         onpaletteremove: function () {
-            RED.sidebar.removeTab("git");
+            RED.sidebar.removeTab("manage-flow-by-git");
         },
     });
 
 </script>
-<script type='text/x-red' data-template-name='git'>
+<script type='text/x-red' data-template-name='manage-flow-by-git'>
     <div class='form-row'>
         <label for='node-input-name'><i class='fa fa-tag'></i>Name</label>
         <input type='text' id='node-input-name' placeholder='Name'>
     </div>
-    <div class="form-row">
-        <label for="node-input-target"><i class="fa fa-tag"></i>Target</label> msg.
-        <input type="text" id="node-input-target" placeholder='payload'>
-    </div>
 </script>
-<script type='text/x-red' data-help-name='git'>
+<script type='text/x-red' data-help-name='manage-flow-by-git'>
     <dl>
         <dt>output</dt>
-        <dd>msg.payload += 1;</dd>
+        <dd></dd>
     </dl>
 </script>
+<style type="text/css">
+    #palette_node_manage-flow-by-git > div.palette_label {
+        color: white;
+    }
+</style>
