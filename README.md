@@ -3,7 +3,7 @@
 ## Released
 
 |Date|Version|Description|
-|:--:|:--:||:--|
+|:--:|:--:|:--|
 |2017-09-19|0.0.1|Enabled to specify payload.|
 
 ## Feature
