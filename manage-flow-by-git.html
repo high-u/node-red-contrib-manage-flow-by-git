@@ -129,9 +129,9 @@
         // transform to xml
         var xml = '<?xml version="1.0" encoding="utf-8"?>\n';
         xml += '<flow>\n';
-        xml += '  <nodes type="array">\n';
+        xml += '  <nodes>\n';
         arr.forEach(function (value, index) {
-            xml += '    <node index="' + index + '" type="map">\n';
+            xml += '    <node index="' + index + '">\n';
             Object.keys(value).forEach(function (key) {
 
                 if (key == "template" || key == "func") {
@@ -175,7 +175,7 @@
             '<li style="margin:0 0 0 2em;">Select nodes.</li>',
             '<li style="margin:0 0 0 2em;"><a id="getxml" href="#" onclick="clk()">Get XML.</a></li>',
             '<li style="margin:0 0 0 2em;"><a id="downloadxml" target="_blank">Download XML.</a></li>',
-            '<li style="margin:0 0 0 2em;">`git commit`, `git push` !</li>',
+            '<li style="margin:0 0 0 2em;">`git commit` and `git push`</li>',
             '</ol>'
         ].join("");
         return html;

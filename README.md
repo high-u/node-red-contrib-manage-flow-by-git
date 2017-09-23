@@ -4,7 +4,8 @@
 
 |Date|Version|Description|
 |:--:|:--:|:--|
-|2017-09-23|0.0.1|Released|
+|2017-09-24|0.0.1|Released|
+|2017-09-23|0.0.6|Update README.|
 
 ## Feature
 
