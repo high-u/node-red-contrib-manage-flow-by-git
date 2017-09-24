@@ -6,7 +6,7 @@
       "manage flow by git": "manage-flow-by-git.js"
     }
   },
-  "description": "Manage flow by git.",
+  "description": "For Node-RED. Manage flow by git. Export Flow XML. Easy to watch diff of function-node and template-node",
   "main": "manage-flow-by-git.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,10 +16,11 @@
     "url": "git+https://github.com/high-u/node-red-contrib-manage-flow-by-git.git"
   },
   "keywords": [
-    "node-red",
+    "Node-RED",
     "manage",
     "flow",
-    "git"
+    "git",
+    "XML"
   ],
   "author": "high-u",
   "license": "Apache-2.0",
