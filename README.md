@@ -1,13 +1,5 @@
 # node-red-contrib-manage-flow-by-git
 
-## Released
-
-|Date|Version|Description|
-|:--:|:--:|:--|
-|2017-09-24|0.0.7|Update README.|
-|2017-09-23|0.0.1|Released|
-
-
 ## Feature
 
 - Manage flow by git.
@@ -16,6 +8,13 @@
 - JSON for restoration is also included in XML.
   - Be careful with handling due to its own processing.
 - Sort node by id.
+
+## Released
+
+|Date|Version|Description|
+|:--:|:--:|:--|
+|2017-09-24|0.0.7|Update README.|
+|2017-09-23|0.0.1|Released|
 
 ## Install
 
