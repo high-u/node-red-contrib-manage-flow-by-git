@@ -2,13 +2,13 @@
 
 ## Feature
 
-- Manage flow by git.
-- It is easy to watch **diff** of `function node` and `template node`.
-- Export XML. Flow(XML) optimized for git diff.
-- Sort node by id.
-- Committing this XML to git makes it easy to manage.
-- JSON for restoration is also included in XML.
-  - Be careful with handling due to it is informal processing.
+* Manage flow by git.
+* It is easy to watch **diff** of `function node` and `template node`.
+* Export XML. Flow(XML) optimized for git diff.
+* Sort node by id.
+* JSON for restoration is also included in XML.
+  * Be careful with handling due to it is informal processing.
+* Committing this XML to git makes it easy to manage.
 
 ## Released
 
@@ -19,22 +19,24 @@
 
 ## Install
 
-- npm install --save node-red-contrib-manage-flow-by-git
+```bash
+npm install --save node-red-contrib-manage-flow-by-git
+```
 
 ## Usage
 
-- Open "by git" tab.
-  1. Select nodes.
-  1. Get XML.
-  1. Download XML.
+* Open "by git" tab.
+  * Select nodes.
+  * Get XML.
+  * Download XML.
 
 ## Warning
 
-- `<json></json>` contains JSON that can be imported with Node-RED.
-- However, It can not be guaranteed. 
-- Please check it yourself.
+* `<json></json>` contains JSON that can be imported with Node-RED.
+* However, It can not be guaranteed. 
+* Please check it yourself.
 
-## XML
+## Example XML
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -119,7 +121,7 @@ return msg;
 <flow>
 ```
 
-- If it is json
+Compare json with xml.
 
 ```json
 [
@@ -195,11 +197,11 @@ return msg;
 
 ## Screenshots
 
-- Tab
+* Tab
 
 ![Tab](./screenshots/tab.png)
 
-- Node (do nothing)
+* Node (do nothing)
 
 ![Node image](./screenshots/node.png)
 
