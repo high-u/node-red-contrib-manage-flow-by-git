@@ -4,10 +4,11 @@
 
 - Manage flow by git.
 - It is easy to watch **diff** of `function node` and `template node`.
-- Export XML. Push XML to git.
-- JSON for restoration is also included in XML.
-  - Be careful with handling due to its own processing.
+- Export XML. Flow(XML) optimized for git diff.
 - Sort node by id.
+- Committing this XML to git makes it easy to manage.
+- JSON for restoration is also included in XML.
+  - Be careful with handling due to it is informal processing.
 
 ## Released
 
@@ -29,7 +30,7 @@
 
 ## Warning
 
-- `<json></json>` contains JSON that can be imported with Node - RED.
+- `<json></json>` contains JSON that can be imported with Node-RED.
 - However, It can not be guaranteed. 
 - Please check it yourself.
 
