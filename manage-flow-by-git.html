@@ -184,8 +184,7 @@
         category: 'advanced',
         color: '#545454',
         defaults: {
-            name: { value: '' },
-            target: { value: 'payload' }
+            name: { value: '' }
         },
         inputs: 0,
         outputs: 0,
@@ -203,14 +202,15 @@
                 content: sethtml(),
                 enableOnEdit: true
             });
-            RED.actions.add("core:show-manage-flow-by-git-tab", function () { RED.sidebar.show('manage-flow-by-git'); });
+            RED.actions.add("core:show-manage-flow-by-git-tab", function () {
+                RED.sidebar.show('manage-flow-by-git'); 
+            });
 
-        },
+        }/*,
         onpaletteremove: function () {
             RED.sidebar.removeTab("manage-flow-by-git");
-        }
+        }*/
     });
-
 </script>
 <script type='text/x-red' data-template-name='manage-flow-by-git'>
     <div class='form-row'>
@@ -220,21 +220,19 @@
 </script>
 <script type='text/x-red' data-help-name='manage-flow-by-git'>
     <dl class="message-properties">
-    <dt>Usage</dt>
-    <dd>
-    <ol style="margin:1em 1em 1em 5%;">
-    <li style="margin:0 0 0 2em;>Open "by git" tab.</li>
-    <li style="margin:0 0 0 2em;">Select nodes.</li>
-    <li style="margin:0 0 0 2em;">Click "Get XML" link.</li>
-    <li style="margin:0 0 0 2em;">Click "Download XML" link.</li>
-    </ol>
-    </dd>
+        <dt>Usage</dt>
+        <dd>
+            <ol style="margin:1em 1em 1em 5%;">
+                <li style="margin:0 0 0 2em;">Open "by git" tab.</li>
+                <li style="margin:0 0 0 2em;">Select nodes.</li>
+                <li style="margin:0 0 0 2em;">Click "Get XML" link.</li>
+                <li style="margin:0 0 0 2em;">Click "Download XML" link.</li>
+            </ol>
+        </dd>
     </dl>
 </script>
 <style type="text/css">
-
     #palette_node_manage-flow-by-git > div.palette_label {
         color: white;
     }
-
 </style>
