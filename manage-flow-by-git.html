@@ -1,24 +1,28 @@
 <script type='text/javascript'>
+    var indentSpaces = "    ";
+    var repeatLetters = function(letters, count){
+        return Array(count + 1).join(letters);
+    }
     function toxml(key, value, depth) {
         var toString = Object.prototype.toString
         var xml = "";
         switch (toString.call(value)) {
             case "[object Object]":
-                xml += Array(depth + 1).join('    ') + '<' + key + '>\n';
+                xml += repeatLetters(indentSpaces, depth) + '<' + key + '>\n';
                 Object.keys(value).forEach(function (k) {
                     xml += toxml(k, this[k], depth + 1);
                 }, value);
-                xml += Array(depth + 1).join('    ') + '</' + key + '>\n';
+                xml += repeatLetters(indentSpaces, depth) + '</' + key + '>\n';
                 break;
             case "[object Array]":
-                xml += Array(depth + 1).join('    ') + '<' + key + '>\n';
+                xml += repeatLetters(indentSpaces, depth) + '<' + key + '>\n';
                 value.forEach(function (v, i) {
                     xml += toxml(i, v, depth + 1);
                 });
-                xml += Array(depth + 1).join('    ') + '</' + key + '>\n';
+                xml += repeatLetters(indentSpaces, depth) + '</' + key + '>\n';
                 break;
             case "[object String]":
-                xml += Array(depth + 1).join('    ') + '<' + key + '>';
+                xml += repeatLetters(indentSpaces, depth) + '<' + key + '>';
                 if (value != '""') {
                     xml += value;
                 } else {
@@ -109,13 +113,13 @@
         // transform to xml
         var xml = '<?xml version="1.0" encoding="utf-8"?>\n';
         xml += '<flow>\n';
-        xml += '    <nodes>\n';
+        xml += repeatLetters(indentSpaces, 1) + '<nodes>\n';
         arr.forEach(function (value, index) {
-            xml += '        <node index="' + index + '">\n';
+            xml += repeatLetters(indentSpaces, 2) + '<node index="' + index + '">\n';
             Object.keys(value).forEach(function (key) {
 
                 if (key == "template" || key == "func") {
-                    xml += '            <' + key + '>';
+                    xml += repeatLetters(indentSpaces, 3) + '<' + key + '>';
                     xml += '<![CDATA[\n';
                     xml += this[key];
                     xml += '\n]]>';
@@ -125,13 +129,13 @@
                 }
 
             }, value);
-            xml += '        </node>\n';
+            xml += repeatLetters(indentSpaces, 2) + '</node>\n';
         });
-        xml += '    </nodes>\n';
-        xml += '    <json><![CDATA[\n';
+        xml += repeatLetters(indentSpaces, 1) + '</nodes>\n';
+        xml += repeatLetters(indentSpaces, 1) + '<json><![CDATA[\n';
         xml += JSON.stringify(arr);
         xml += '\n]]>\n';
-        xml += '    </json>\n';
+        xml += repeatLetters(indentSpaces, 1) + '</json>\n';
         xml += '<flow>';
 
         var textarea = document.getElementById("content");
@@ -159,21 +163,20 @@
         ].join("");
         return html;
     }
-    RED.nodes.registerType('manage-flow-by-git', {
-        category: 'advanced',
-        color: '#545454',
+    RED.nodes.registerType("manage-flow-by-git", {
+        category: "advanced",
+        color: "#545454",
         defaults: {
-            name: { value: '' }
+            name: { value: "" }
         },
         inputs: 0,
         outputs: 0,
-        icon: 'manage-flow-by-git.png',
+        icon: "manage-flow-by-git.png",
         paletteLabel: "by git",
         label: function () {
-            return this.name || "msg." + this.target + "++";
+            return this.name || "by git";
         },
         onpaletteadd: function () {
-
             RED.sidebar.addTab({
                 id: "manage-flow-by-git",
                 label: "by git",
@@ -182,22 +185,18 @@
                 enableOnEdit: true
             });
             RED.actions.add("core:show-manage-flow-by-git-tab", function () {
-                RED.sidebar.show('manage-flow-by-git'); 
+                RED.sidebar.show("manage-flow-by-git"); 
             });
-
-        }/*,
-        onpaletteremove: function () {
-            RED.sidebar.removeTab("manage-flow-by-git");
-        }*/
+        }
     });
 </script>
-<script type='text/x-red' data-template-name='manage-flow-by-git'>
-    <div class='form-row'>
-        <label for='node-input-name'><i class='fa fa-tag'></i>Name</label>
-        <input type='text' id='node-input-name' placeholder='Name'>
+<script type="text/x-red" data-template-name="manage-flow-by-git">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
-<script type='text/x-red' data-help-name='manage-flow-by-git'>
+<script type="text/x-red" data-help-name="manage-flow-by-git">
     <dl class="message-properties">
         <dt>Usage</dt>
         <dd>
