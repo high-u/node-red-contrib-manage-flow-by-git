@@ -2,18 +2,18 @@
 
 ## Feature
 
-* Manage flow by git.
-* It is easy to watch **diff** of `function node` and `template node`.
-* Export XML. Flow(XML) optimized for git diff.
-* Sort node by id.
-* JSON for restoration is also included in XML.
-  * Be careful with handling due to it is informal processing.
-* Committing this XML to git makes it easy to manage.
+Manage flow by git.
+It is easy to watch **diff** of `function node` and `template node`.
+Export XML. Flow(XML) optimized for git diff.
+Sort node by id.
+JSON for restoration is also included in XML.Be careful with handling due to it is informal processing.
+Committing this XML to git makes it easy to manage.
 
 ## Released
 
 |Date|Version|Description|
 |:--:|:--:|:--|
+|2017-09-26|0.0.16|a little  modification|
 |2017-09-24|0.0.7|Update README.|
 |2017-09-23|0.0.1|Released|
 
@@ -26,9 +26,9 @@ npm install --save node-red-contrib-manage-flow-by-git
 ## Usage
 
 * Open "by git" tab.
-  * Select nodes.
-  * Get XML.
-  * Download XML.
+* Select nodes.
+* Get XML.
+* Download XML.
 
 ## Warning
 
@@ -193,7 +193,6 @@ Compare json with xml.
     }
 ]
 ```
-
 
 ## Screenshots
 

@@ -4,21 +4,21 @@
         var xml = "";
         switch (toString.call(value)) {
             case "[object Object]":
-                xml += Array(depth + 1).join('  ') + '<' + key + '>\n';
+                xml += Array(depth + 1).join('    ') + '<' + key + '>\n';
                 Object.keys(value).forEach(function (k) {
                     xml += toxml(k, this[k], depth + 1);
                 }, value);
-                xml += Array(depth + 1).join('  ') + '</' + key + '>\n';
+                xml += Array(depth + 1).join('    ') + '</' + key + '>\n';
                 break;
             case "[object Array]":
-                xml += Array(depth + 1).join('  ') + '<' + key + '>\n';
+                xml += Array(depth + 1).join('    ') + '<' + key + '>\n';
                 value.forEach(function (v, i) {
                     xml += toxml(i, v, depth + 1);
                 });
-                xml += Array(depth + 1).join('  ') + '</' + key + '>\n';
+                xml += Array(depth + 1).join('    ') + '</' + key + '>\n';
                 break;
             case "[object String]":
-                xml += Array(depth + 1).join('  ') + '<' + key + '>';
+                xml += Array(depth + 1).join('    ') + '<' + key + '>';
                 if (value != '""') {
                     xml += value;
                 } else {
@@ -32,25 +32,12 @@
         return xml;
     }
     function clk() {
-
-        //console.log(RED);
-
         var selectednodes = RED.view.selection().nodes;
-
-
         var test = RED.view.selection();
-        //console.log(test);
-
-
 
         var arr = [];
         var parentnodeid = [];
         selectednodes.forEach(function (n) {
-            console.log(n);
-
-            //parentnodeid.push({id:n.id, parent: n.z});
-
-            //console.log(n._ports.enter());
             var node = {};
             node.id = n.id;
             node.type = n.type;
@@ -71,11 +58,9 @@
                 }
             }, config);
             node.wires = [];
-            //node.wires[0] = [];
             arr.push(node);
 
         });
-        //console.log(parentnodeid);
 
         /*
         // get selected nodes
@@ -105,9 +90,7 @@
         // get wires
         arr.forEach(function (n) {
             RED.nodes.eachLink(function (l) {
-
                 if (n.id == l.source.id) {
-                    console.log(l);
                     n.wires[l.sourcePort] = [l.target.id];
                 }
             });
@@ -116,26 +99,23 @@
             }
         });
 
-
         // sort nodes by id
-        //console.log(arr);
         arr.sort(function (a, b) {
             if (a.id < b.id) return -1;
             if (a.id > b.id) return 1;
             return 0;
         });
-        //console.log(arr);
 
         // transform to xml
         var xml = '<?xml version="1.0" encoding="utf-8"?>\n';
         xml += '<flow>\n';
-        xml += '  <nodes>\n';
+        xml += '    <nodes>\n';
         arr.forEach(function (value, index) {
-            xml += '    <node index="' + index + '">\n';
+            xml += '        <node index="' + index + '">\n';
             Object.keys(value).forEach(function (key) {
 
                 if (key == "template" || key == "func") {
-                    xml += '      <' + key + '>';
+                    xml += '            <' + key + '>';
                     xml += '<![CDATA[\n';
                     xml += this[key];
                     xml += '\n]]>';
@@ -145,13 +125,13 @@
                 }
 
             }, value);
-            xml += '    </node>\n';
+            xml += '        </node>\n';
         });
-        xml += '  </nodes>\n';
-        xml += '  <json><![CDATA[\n';
+        xml += '    </nodes>\n';
+        xml += '    <json><![CDATA[\n';
         xml += JSON.stringify(arr);
         xml += '\n]]>\n';
-        xml += '  </json>\n';
+        xml += '    </json>\n';
         xml += '<flow>';
 
         var textarea = document.getElementById("content");
@@ -162,7 +142,6 @@
         var blob = new Blob([content], { "type": "text/plain" });
         window.URL = window.URL || window.webkitURL;
         var element = document.getElementById("downloadxml");
-        console.log(element);
         element.setAttribute("href", window.URL.createObjectURL(blob));
         element.setAttribute("download", "flow.xml");
     }
