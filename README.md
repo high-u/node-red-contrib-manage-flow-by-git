@@ -2,12 +2,14 @@
 
 ## Feature
 
-Manage flow by git.
-It is easy to watch **diff** of `function node` and `template node`.
-Export XML. Flow(XML) optimized for git diff.
-Sort node by id.
-JSON for restoration is also included in XML.Be careful with handling due to it is informal processing.
-Committing this XML to git makes it easy to manage.
+- for Node-RED.
+- Manage flow by git.
+- It is easy to watch **diff** of `function node` and `template node`.
+- Export XML. Flow(XML) optimized for git diff.
+- Sort node by id.
+- JSON for restoration is also included in XML.
+  - Be careful with handling due to it is informal processing.
+- Committing this XML to git makes it easy to manage.
 
 ## Released
 
